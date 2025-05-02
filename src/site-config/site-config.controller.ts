@@ -1,12 +1,13 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { SiteConfigService } from './site-config.service';
+import { CreateSiteConfigDto } from './dto/create-site-config-dto';
 
-@Controller()
+@Controller('site-config')
 export class SiteConfigController {
   constructor(private readonly siteConfigService: SiteConfigService) {}
 
-  @Get()
-  getHello(): string {
-    return this.siteConfigService.getHello();
+  @Post()
+  postSiteConfig(@Body()dto: CreateSiteConfigDto) {
+    return this.siteConfigService.createSiteConfig(dto);
   }
 }
