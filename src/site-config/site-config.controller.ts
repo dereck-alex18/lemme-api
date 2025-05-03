@@ -7,7 +7,7 @@ export class SiteConfigController {
   constructor(private readonly siteConfigService: SiteConfigService) {}
 
   @Post()
-  postSiteConfig(@Body()dto: CreateSiteConfigDto) {
-    return this.siteConfigService.createSiteConfig(dto);
+  async postSiteConfig(@Body()dto: CreateSiteConfigDto) {
+    return await this.siteConfigService.createSiteConfig(dto);
   }
 }
