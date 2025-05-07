@@ -32,4 +32,19 @@ export class SiteConfigService {
       data: config,
     };
   }
+
+  async getSiteConfig() {
+    const config = await this.prisma.siteConfig.findFirst();
+
+    if (!config) {
+      return {
+        message: 'Configuração do site não encontrada.',
+        data: null,
+      };
+    }
+    return {
+      message: 'Configuração atual carregada com sucesso!',
+      data: config,
+    };
+  }
 }

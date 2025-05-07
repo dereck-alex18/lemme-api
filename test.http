@@ -1,10 +1,13 @@
+GET http://localhost:3000/site-config HTTP/1.1
+
+###
 
 POST http://localhost:3000/site-config HTTP/1.1
 content-type: application/json
 
 {
     "font": "Roboto",
-    "primaryColor": "#fff",
+    "primaryColor": "#fafafa",
     "secondaryColor": "#000",
     "layout": "1"
 }
